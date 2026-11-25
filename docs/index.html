@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Drownstar</title>
+    <title>Drownstar</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -135,7 +135,12 @@
           }
         }).then((unityInstance) => {
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
+                  // ask the browser directly; if it refuses (no user gesture, pointer lock, iframe), carry on windowed
+                  const el = document.querySelector("#unity-fullscreen-container") || document.querySelector("#unity-canvas");
+                  try {
+                    const p = el.requestFullscreen ? el.requestFullscreen() : (el.webkitRequestFullscreen ? el.webkitRequestFullscreen() : null);
+                    if (p && p.catch) p.catch(() => {});
+                  } catch (e) { }
                 };
 
               }).catch((message) => {
