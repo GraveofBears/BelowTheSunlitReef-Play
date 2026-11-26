@@ -6,4 +6,4 @@ Only the built game lives here (in `docs/`, served by GitHub Pages). The source 
 
 Controls: mouse look · WASD move · Space / Ctrl rise / sink · Shift boost · F lamp · E ping (on the pulse!) ·
 G launch the ROV · R recall it · X dump cargo · hold right mouse = camera, left click = photo · Tab journal ·
-L livery · Esc options · dock under the station to sell, store and upgrade.
+M chart · L livery · Esc options · dock under the station to sell, store and upgrade.
